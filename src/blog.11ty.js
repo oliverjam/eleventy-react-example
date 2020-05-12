@@ -17,7 +17,10 @@ exports.render = (data) => {
   return html`
     <ul>
       ${posts.map(
-        (post) => html`<li><a href="${post.url}">${post.data.title}</a></li>`
+        (post) =>
+          html`<li key="${post.url}">
+            <a href="${post.url}">${post.data.title}</a>
+          </li>`
       )}
     </ul>
   `;
