@@ -1,5 +1,7 @@
 # Eleventy with React
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/c1046124-a786-41db-95e2-8b70555e9ec7/deploy-status)](https://app.netlify.com/sites/eloquent-jackson-998ed3/deploys)
+
 This is an example showing how you can use React as a static templating engine with the Eleventy static site generator.
 
 React is only used to compose components and render to static HTML—there is no client-side JavaScript at all. You can see the final built files in the `_site/` directory.
