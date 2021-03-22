@@ -28,12 +28,12 @@ This means as long as we have a final layout at the top of the chain which rende
 
 We do this in `src/_includes/layouts/render.11ty.js` using `ReactDOMServer.renderToStaticMarkup`. We also have to use a regular template literal to wrap the React tree in all the usual HTML boilerplate, since React breaks if you try to render a `<!doctype html>`.
 
-## Bonus pre-fetching
+## Bonus pre-fetching
 
 People sometimes argue that static sites that use React client-side perform better because a single-page app with client-side routing downloads all the content upfront and can therefore navigate instantly between pages.
 
 Ignoring the fact that trading off upfront performance might not be the best idea, we can achieve something similar without any JS at all.
 
-[Almost all browsers support](https://caniuse.com/#feat=link-rel-prefetch) pre-fetching resources declaratively using `<link re="prefetch" href="/some-page/">`. Including this in the `<head>` of a document will cause the browser to fetch `/some-page/` and keep it in the cache. If the user clicks a link for that resource it should load almost instantly.
+[Almost all browsers support](https://caniuse.com/#feat=link-rel-prefetch) pre-fetching resources declaratively using `<link rel="prefetch" href="/some-page/">`. Including this in the `<head>` of a document will cause the browser to fetch `/some-page/` and keep it in the cache. If the user clicks a link for that resource it should load almost instantly.
 
 Here we're using this technique to pre-fetch all the top-level pages (`/about/` and `/blog/`). We also use the new Eleventy "computed data" feature to specify the most recent 3 blog posts to be pre-fetched on the `/blog/` page, so the user can instantly view them.
